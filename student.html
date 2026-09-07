@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillTrack AI - Student Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="sidebar-logo-title">
+                <span>✦</span> SkillTrack AI
+            </div>
+
+            <div class="sidebar-logo-subtitle">
+                Student Portal
+            </div>
+        </div>
+
+
+        <div class="student-mini">
+
+            <div class="avatar" id="sidebarAvatar">
+                S
+            </div>
+
+            <div>
+                <strong id="sidebarName">Student</strong>
+                <small>Student</small>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <button class="side-link active"
+                    onclick="showSection('dashboard',this)">
+                🏠
+                <span>Dashboard</span>
+            </button>
+
+            <button class="side-link"
+                    onclick="showSection('profile',this)">
+                👤
+                <span>My Profile</span>
+            </button>
+
+            <button class="side-link"
+                    onclick="showSection('education',this)">
+                🎓
+                <span>Education</span>
+            </button>
+
+            <button class="side-link"
+                    onclick="showSection('skills',this)">
+                💡
+                <span>My Skills</span>
+            </button>
+
+            <button class="side-link"
+                    onclick="showSection('courses',this)">
+                📚
+                <span>My Courses</span>
+            </button>
+
+            <button class="side-link"
+                    onclick="showSection('employment',this)">
+                💼
+                <span>Employment</span>
+            </button>
+
+            <div class="nav-divider"></div>
+
+            <button class="side-link"
+                    onclick="showSection('skillgap',this)">
+                🎯
+                <span>Skill Gap</span>
+            </button>
+
+            <button class="side-link"
+                    onclick="showSection('recommendations',this)">
+                ✨
+                <span>Recommendations</span>
+            </button>
+
+            <button class="side-link"
+                    onclick="showSection('career',this)">
+                🚀
+                <span>Career Path</span>
+            </button>
+
+            <button class="side-link"
+                    onclick="showSection('jobs',this)">
+                💼
+                <span>Job Match</span>
+            </button>
+
+            <button class="side-link"
+        onclick="showSection('companies',this)">
+    🏢
+    <span>Companies & Roles</span>
+</button>
+
+            <button class="side-link"
+        onclick="showSection('resume',this)">
+    📄
+    <span>My Resume</span>
+</button>
+
+        </nav>
+
+
+        <button class="logout-btn" onclick="logout()">
+            ↪ Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="dashboard-topbar">
+
+            <div>
+                <span class="dashboard-small-label">
+                    STUDENT DASHBOARD
+                </span>
+
+                <h1 id="dashboardTitle">
+                    Dashboard
+                </h1>
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button class="notification">
+                    🔔
+                </button>
+
+                <div class="top-avatar" id="topAvatar">
+                    S
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboardSection"
+                 class="app-section active-section">
+
+
+            <div class="welcome-box">
+
+                <div>
+                    <span>WELCOME BACK</span>
+
+                    <h2>
+                        Hello, <strong id="welcomeName">
+                            Student
+                        </strong> 👋
+                    </h2>
+
+                    <p>
+                        Keep learning and move closer to your dream career.
+                    </p>
+                </div>
+
+                <div class="welcome-icon">
+                    🚀
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        💡
+                    </div>
+
+                    <div>
+                        <small>SKILLS ADDED</small>
+                        <strong id="skillsStat">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        📚
+                    </div>
+
+                    <div>
+                        <small>COURSES COMPLETED</small>
+                        <strong id="coursesStat">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        🎯
+                    </div>
+
+                    <div>
+                        <small>CAREER READINESS</small>
+                        <strong id="readinessStat">0%</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        💼
+                    </div>
+
+                    <div>
+                        <small>EMPLOYMENT</small>
+                        <strong id="employmentStat">Not Set</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <h3>Career Readiness</h3>
+
+                        <p>
+                            Your overall progress toward your selected career.
+                        </p>
+                    </div>
+
+                    <strong id="readinessBig">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-fill"
+                         id="readinessProgress"
+                         style="width:0%">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-overview-grid">
+
+                <div class="overview-card">
+                    <span>🎯</span>
+                    <div>
+                        <strong>Skill Gap</strong>
+                        <p>Find skills you need to improve.</p>
+                    </div>
+
+                    <button onclick="showSection('skillgap')">
+                        Explore →
+                    </button>
+                </div>
+
+
+                <div class="overview-card">
+                    <span>💼</span>
+                    <div>
+                        <strong>Job Match</strong>
+                        <p>Find careers matching your skills.</p>
+                    </div>
+
+                    <button onclick="showSection('jobs')">
+                        Explore →
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+
+        <section id="profileSection"
+                 class="app-section">
+
+            <div class="page-heading">
+                <span>YOUR INFORMATION</span>
+                <h2>My Profile</h2>
+                <p>Manage your personal information.</p>
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input id="profileName"
+                               type="text"
+                               placeholder="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input id="profileEmail"
+                               type="email"
+                               placeholder="Your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input id="profilePhone"
+                               type="text"
+                               placeholder="Phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input id="profileLocation"
+                               type="text"
+                               placeholder="City">
+                    </div>
+
+                </div>
+
+                <button class="btn-primary"
+                        onclick="saveProfile()">
+                    Save Profile
+                </button>
+
+                <p id="profileMessage"
+                   class="success-message"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- EDUCATION -->
+
+        <section id="educationSection"
+                 class="app-section">
+
+            <div class="page-heading">
+                <span>ACADEMIC JOURNEY</span>
+                <h2>Education</h2>
+                <p>Add your educational information.</p>
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>College / Institution</label>
+                        <input id="collegeInput"
+                               placeholder="College name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Degree</label>
+                        <input id="degreeInput"
+                               placeholder="B.Tech / B.Sc / etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Branch</label>
+                        <input id="branchInput"
+                               placeholder="CSE / CSM / IT / etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Graduation Year</label>
+                        <input id="graduationInput"
+                               type="number"
+                               placeholder="2027">
+                    </div>
+
+                </div>
+
+                <button class="btn-primary"
+                        onclick="saveEducation()">
+                    Save Education
+                </button>
+
+                <p id="educationMessage"
+                   class="success-message"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+
+        <section id="skillsSection"
+                 class="app-section">
+
+            <div class="page-heading">
+                <span>YOUR ABILITIES</span>
+                <h2>My Skills</h2>
+                <p>Add skills that you currently have.</p>
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="input-row">
+
+                    <input id="skillInput"
+                           placeholder="Example: Python">
+
+                    <button class="btn-primary"
+                            onclick="addSkill()">
+                        + Add Skill
+                    </button>
+
+                </div>
+
+
+                <div class="skills-list"
+                     id="skillsList">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COURSES -->
+
+        <section id="coursesSection"
+                 class="app-section">
+
+            <div class="page-heading">
+                <span>LEARNING</span>
+                <h2>My Courses</h2>
+                <p>Track the courses you have completed.</p>
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="input-row">
+
+                    <input id="courseInput"
+                           placeholder="Example: Python Basics">
+
+                    <button class="btn-primary"
+                            onclick="addCourse()">
+                        + Add Course
+                    </button>
+
+                </div>
+
+
+                <div id="coursesList"
+                     class="item-list">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EMPLOYMENT -->
+
+        <section id="employmentSection"
+                 class="app-section">
+
+            <div class="page-heading">
+                <span>CAREER STATUS</span>
+                <h2>Employment</h2>
+                <p>Update your current employment status.</p>
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="form-group">
+
+                    <label>Employment Status</label>
+
+                    <select id="employmentInput">
+
+                        <option value="">
+                            Select status
+                        </option>
+
+                        <option value="Student">
+                            Student
+                        </option>
+
+                        <option value="Looking for Job">
+                            Looking for Job
+                        </option>
+
+                        <option value="Employed">
+                            Employed
+                        </option>
+
+                        <option value="Intern">
+                            Intern
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button class="btn-primary"
+                        onclick="saveEmployment()">
+                    Save Status
+                </button>
+
+                <p id="employmentMessage"
+                   class="success-message"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILL GAP -->
+
+        <section id="skillgapSection"
+                 class="app-section">
+
+            <div class="page-heading">
+                <span>ANALYSIS</span>
+                <h2>Skill Gap Analysis</h2>
+                <p>Compare your skills with your selected career.</p>
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="form-group">
+
+                    <label>Choose Career</label>
+
+                    <select id="careerSelect"
+                            onchange="analyzeSkillGap()">
+
+                        <option value="">
+                            Select a career
+                        </option>
+
+                        <option value="Software Developer">
+                            Software Developer
+                        </option>
+
+                        <option value="Data Analyst">
+                            Data Analyst
+                        </option>
+
+                        <option value="AI Engineer">
+                            AI Engineer
+                        </option>
+
+                        <option value="Web Developer">
+                            Web Developer
+                        </option>
+
+                        <option value="Cloud Engineer">
+                            Cloud Engineer
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div id="skillGapResult"
+                     class="analysis-result">
+
+                    Select a career to see your skill gap.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECOMMENDATIONS -->
+
+        <section id="recommendationsSection"
+                 class="app-section">
+
+            <div class="page-heading">
+                <span>PERSONALIZED LEARNING</span>
+                <h2>Recommendations</h2>
+                <p>Suggestions based on your skills and career.</p>
+            </div>
+
+
+            <div id="recommendationsList"
+                 class="recommendation-grid">
+            </div>
+
+        </section>
+
+
+        <!-- CAREER PATH -->
+
+        <section id="careerSection"
+                 class="app-section">
+
+            <div class="page-heading">
+                <span>YOUR ROADMAP</span>
+                <h2>Career Path</h2>
+                <p>Follow a simple path toward your target career.</p>
+            </div>
+
+
+            <div class="content-card">
+
+                <div class="form-group">
+
+                    <label>Target Career</label>
+
+                    <select id="careerPathSelect"
+                            onchange="generateCareerPath()">
+
+                        <option value="">
+                            Select career
+                        </option>
+
+                        <option value="Software Developer">
+                            Software Developer
+                        </option>
+
+                        <option value="Data Analyst">
+                            Data Analyst
+                        </option>
+
+                        <option value="AI Engineer">
+                            AI Engineer
+                        </option>
+
+                        <option value="Web Developer">
+                            Web Developer
+                        </option>
+
+                        <option value="Cloud Engineer">
+                            Cloud Engineer
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div id="careerPathResult"
+                     class="roadmap">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- JOB MATCH -->
+
+        <section id="jobsSection"
+                 class="app-section">
+
+            <div class="page-heading">
+                <span>EMPLOYMENT OPPORTUNITIES</span>
+                <h2>Job Match</h2>
+                <p>
+                    See which job roles match your current skills.
+                </p>
+            </div>
+
+
+            <div class="job-match-header">
+
+                <div>
+                    <strong id="jobMatchCount">
+                        0
+                    </strong>
+
+                    <span>
+                        suitable roles
+                    </span>
+                </div>
+
+                <button class="btn-primary"
+                        onclick="runJobMatch()">
+                    Find Matches
+                </button>
+
+            </div>
+
+
+            <div id="jobsList"
+                class="jobs-grid">
+            </div>
+
+        </section>
+
+                </section>
+
+
+        <!-- =====================================================
+             COMPANIES & ROLES
+        ===================================================== -->
+
+        <section id="companiesSection"
+                 class="app-section">
+
+            <div class="page-heading">
+                <span>CAREER OPPORTUNITIES</span>
+
+                <h2>🏢 Companies & Roles</h2>
+
+                <p>
+                    Explore companies and roles that can match your
+                    career goals.
+                </p>
+            </div>
+
+
+            <div class="companies-toolbar">
+
+                <div class="company-search-box">
+                    🔎
+
+                    <input
+                        id="companySearchInput"
+                        type="text"
+                        placeholder="Search companies or roles..."
+                        oninput="filterCompanies()"
+                    >
+                </div>
+
+
+                <select
+                    id="companyTypeFilter"
+                    onchange="filterCompanies()"
+                >
+
+                    <option value="all">
+                        All Opportunities
+                    </option>
+
+                    <option value="internship">
+                        Internships
+                    </option>
+
+                    <option value="full-time">
+                        Full Time
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div
+                id="companiesList"
+                class="companies-grid">
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RESUME BUILDER
+        ===================================================== -->
+
+        <section id="resumeSection"
+                 class="app-section">
+
+            <div class="page-heading">
+
+                <span>CAREER READY</span>
+
+                <h2>📄 My Resume</h2>
+
+                <p>
+                    Build a professional resume from your
+                    SkillTrack AI profile.
+                </p>
+
+            </div>
+
+
+            <!-- LOCKED -->
+
+            <div id="resumeLocked"
+                 class="resume-locked">
+
+                <div class="resume-lock-icon">
+                    🔒
+                </div>
+
+                <h2>
+                    Complete Your Learning Path
+                </h2>
+
+                <p id="resumeProgressText">
+                    Complete your recommended courses
+                    to unlock your career-ready resume.
+                </p>
+
+
+                <div class="resume-progress-track">
+
+                    <div
+                        id="resumeProgressBar"
+                        class="resume-progress-fill"
+                        style="width:0%">
+                    </div>
+
+                </div>
+
+
+                <strong id="resumeProgressPercent">
+                    0%
+                </strong>
+
+
+                <button
+                    class="btn-primary"
+                    onclick="showSection('recommendations')">
+
+                    📚 Continue Learning
+
+                </button>
+
+            </div>
+
+
+            <!-- UNLOCKED -->
+
+            <div id="resumeUnlocked"
+                 class="resume-builder"
+                 style="display:none;">
+
+                <div class="resume-success">
+
+                    <div class="resume-success-icon">
+                        🎉
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            You're Career Ready!
+                        </h2>
+
+                        <p>
+                            You completed the recommended
+                            learning for
+                            <strong id="resumeCareerName">
+                                your career
+                            </strong>.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESUME -->
+
+                <div id="resumePreview"
+                     class="resume-paper">
+
+                    <div class="resume-header">
+
+                        <h1 id="resumeName">
+                            Student
+                        </h1>
+
+                        <p id="resumeContact">
+                            Email • Phone • Location
+                        </p>
+
+                    </div>
+
+
+                    <div class="resume-section">
+
+                        <h3>
+                            Career Objective
+                        </h3>
+
+                        <p id="resumeObjective">
+                            Motivated student seeking
+                            opportunities to build a
+                            successful career.
+                        </p>
+
+                    </div>
+
+
+                    <div class="resume-section">
+
+                        <h3>
+                            Education
+                        </h3>
+
+                        <p id="resumeEducation">
+                            Education details will appear here.
+                        </p>
+
+                    </div>
+
+
+                    <div class="resume-section">
+
+                        <h3>
+                            Skills
+                        </h3>
+
+                        <div
+                            id="resumeSkills"
+                            class="resume-tags">
+                        </div>
+
+                    </div>
+
+
+                    <div class="resume-section">
+
+                        <h3>
+                            Completed Courses
+                        </h3>
+
+                        <div
+                            id="resumeCourses"
+                            class="resume-course-list">
+                        </div>
+
+                    </div>
+
+
+                    <div class="resume-section">
+
+                        <h3>
+                            Career Goal
+                        </h3>
+
+                        <p id="resumeCareer">
+                            Not selected
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="resume-actions">
+
+                    <button
+                        class="btn-primary"
+                        onclick="window.print()">
+
+                        🖨️ Print / Save Resume
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+
+    </main>
+
+</div>
+

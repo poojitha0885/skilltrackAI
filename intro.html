@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillTrack AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>✦</span> SkillTrack AI
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+
+            <button class="login-btn"
+                onclick="openLogin()">
+                Login
+            </button>
+
+            <button class="primary-btn"
+                onclick="openRegister()">
+                Get Started →
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-heading">
+                WELCOME TO SKILLTRACK AI
+            </div>
+
+            <h1>
+                Turn Your
+                <span>Skills</span>
+                Into Your Career
+            </h1>
+
+            <p>
+                Discover your skill gaps, learn the right skills,
+                track your progress and move closer to employment
+                with personalized guidance.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn"
+                    onclick="openRegister()">
+                    Get Started →
+                </button>
+
+                <button class="secondary-btn"
+                    onclick="document.getElementById('features').scrollIntoView()">
+                    Explore Features
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual">
+
+            <div class="floating-card education-card">
+
+                <div class="floating-icon">
+                    🎓
+                </div>
+
+                <div>
+                    <strong>Education</strong>
+                    <small>Track qualifications</small>
+                </div>
+
+            </div>
+
+
+            <div class="analysis-card">
+
+                <div class="analysis-top">
+                    <span>Skill Analysis</span>
+                    <b>✦ AI</b>
+                </div>
+
+                <h3>
+                    Your Career Readiness
+                </h3>
+
+                <div class="score-circle">
+                    <span id="heroScore">68%</span>
+                </div>
+
+                <p class="score-text">
+                    Skill Match
+                </p>
+
+
+                <div class="skill-row">
+                    <span>Python</span>
+                    <b>✓</b>
+                </div>
+
+                <div class="skill-row">
+                    <span>HTML & CSS</span>
+                    <b>✓</b>
+                </div>
+
+                <div class="skill-row">
+                    <span>SQL</span>
+                    <b>+</b>
+                </div>
+
+                <div class="skill-row">
+                    <span>Git</span>
+                    <b>+</b>
+                </div>
+
+            </div>
+
+
+            <div class="floating-card career-card">
+
+                <div class="floating-icon">
+                    🚀
+                </div>
+
+                <div>
+                    <strong>Career Path</strong>
+                    <small>Build skills for your goal</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features-section"
+        id="features">
+
+        <div class="section-heading">
+
+            <span>
+                WHAT WE OFFER
+            </span>
+
+            <h2>
+                Everything You Need
+                To Build Your Career
+            </h2>
+
+            <p>
+                SkillTrack AI helps students understand
+                their skills and prepare for employment.
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Skill Gap Analysis</h3>
+                <p>
+                    Identify the skills you have and
+                    discover the skills you still need.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Course Recommendations</h3>
+                <p>
+                    Get learning recommendations based
+                    on your selected career.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Career Path</h3>
+                <p>
+                    Follow a simple roadmap from your
+                    current skills to your career goal.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Progress Tracking</h3>
+                <p>
+                    Track your education, courses,
+                    skills and employment progress.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about-section"
+        id="about">
+
+        <div class="about-content">
+
+            <span>
+                ABOUT SKILLTRACK AI
+            </span>
+
+            <h2>
+                From Skills
+                To Employment
+            </h2>
+
+            <p>
+                SkillTrack AI is designed to help students
+                understand their current abilities, identify
+                skill gaps and learn the skills required for
+                their desired careers.
+            </p>
+
+            <div class="about-points">
+
+                <div>
+                    ✓ Track education and skills
+                </div>
+
+                <div>
+                    ✓ Identify career skill gaps
+                </div>
+
+                <div>
+                    ✓ Receive personalized learning guidance
+                </div>
+
+                <div>
+                    ✓ Prepare for employment
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LOGIN MODAL -->
+
+    <div class="modal"
+        id="loginModal">
+
+        <div class="modal-box">
+
+            <button class="close-btn"
+                onclick="closeModals()">
+                ×
+            </button>
+
+            <div class="modal-icon">
+                👋
+            </div>
+
+            <h2>
+                Welcome Back
+            </h2>
+
+            <p>
+                Login to continue your SkillTrack journey.
+            </p>
+
+
+            <form onsubmit="loginStudent(event)">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required>
+
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn full-btn">
+                    Login
+                </button>
+
+            </form>
+
+
+            <p class="switch-text">
+                Don't have an account?
+                <button onclick="switchToRegister()">
+                    Register
+                </button>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- REGISTER MODAL -->
+
+    <div class="modal"
+        id="registerModal">
+
+        <div class="modal-box">
+
+            <button class="close-btn"
+                onclick="closeModals()">
+                ×
+            </button>
+
+            <div class="modal-icon">
+                🎓
+            </div>
+
+            <h2>
+                Create Your Account
+            </h2>
+
+            <p>
+                Start building your career with SkillTrack AI.
+            </p>
+
+
+            <form onsubmit="registerStudent(event)">
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    id="registerName"
+                    placeholder="Enter your name"
+                    required>
+
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Enter your email"
+                    required>
+
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create a password"
+                    required>
+
+
+                <label>Branch / Degree</label>
+
+<select
+    id="registerBranch"
+    required>
+
+    <option value="">
+        Select your Branch / Degree
+    </option>
+
+    <option value="CSE">
+        B.Tech CSE
+    </option>
+
+    <option value="CSM">
+        B.Tech CSM / AI & ML
+    </option>
+
+    <option value="IT">
+        B.Tech IT
+    </option>
+
+    <option value="ECE">
+        B.Tech ECE
+    </option>
+
+    <option value="EEE">
+        B.Tech EEE
+    </option>
+
+    <option value="MECHANICAL">
+        B.Tech Mechanical
+    </option>
+
+    <option value="CIVIL">
+        B.Tech Civil
+    </option>
+
+    <option value="BCA">
+        BCA
+    </option>
+
+    <option value="BSC">
+        B.Sc
+    </option>
+
+    <option value="BCOM">
+        B.Com
+    </option>
+
+    <option value="OTHER">
+        Other
+    </option>
+
+</select>
+
+
+<label>Career Goal</label>
+
+<select
+    id="registerCareer"
+    required>
+
+    <option value="">
+        Select your career
+    </option>
+
+    <option>
+        Software Developer
+    </option>
+
+    <option>
+        Web Developer
+    </option>
+
+    <option>
+        Data Analyst
+    </option>
+
+    <option>
+        UI/UX Designer
+    </option>
+
+    <option>
+        AI / ML Engineer
+    </option>
+
+                </select>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn full-btn">
+
+                    Create Account →
+
+                </button>
+
+            </form>
+
+
+            <p class="switch-text">
+
+                Already have an account?
+
+                <button onclick="switchToLogin()">
+                    Login
+                </button>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <div>
+            ✦ SkillTrack AI
+        </div>
+
+        <p>
+            Helping students turn skills into careers.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+    <script>
+function openLogin() {
+    const modal = document.getElementById("loginModal");
+
+    if (modal) {
+        modal.classList.add("show");
+    }
+}
+
+function openRegister() {
+    const modal = document.getElementById("registerModal");
+
+    if (modal) {
+        modal.classList.add("show");
+    }
+}
+
+function closeModals() {
+    document.querySelectorAll(".modal").forEach(function(modal) {
+        modal.classList.remove("show");
+    });
+}
+
+function switchToRegister() {
+    closeModals();
+    openRegister();
+}
+
+function switchToLogin() {
+    closeModals();
+    openLogin();
+}
+</script>
+
+</body>
+
+</html>
